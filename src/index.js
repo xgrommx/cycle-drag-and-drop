@@ -46,12 +46,3 @@ Cycle.run((drivers => {
     DOM: makeDOMDriver('#app'),
     globalMouseMove: () => Cycle.Rx.Observable.fromEvent(document, 'mousemove')
 });
-
-function main({DOM, globalMouseMove}) {
-    let actions = intent(DOM, globalMouseMove);
-    let state$ = model(actions);
-
-    return {
-        DOM: view(state$)
-    };
-}
